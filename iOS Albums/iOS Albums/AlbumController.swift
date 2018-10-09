@@ -42,5 +42,97 @@ class AlbumController {
             NSLog("Error encoding album:\(error)")
         }
     }
-
+    
+    func createAlbum(name: String, artist: String, genres: String, coverArt: URL) {
+        
+        let album = Album(artist: artist, coverArt: coverArt, genres: genres, name: name)
+        albums.append(album)
+        
+        put(album: album) { (_) in
+            
+        }
+    }
+    
+    func update(album: Album, name: String, artist: String, genres: String, coverArt: URL) {
+        
+        let tempAlbum = Album(artist: artist, coverArt: coverArt, genres: genres, id: album.id, name: name, songs: album.songs)
+        
+        guard let index = albums.index(of: album) else { return }
+        
+        albums.remove(at: index)
+        albums.insert(tempAlbum, at: index)
+        
+        put(album: tempAlbum) { (_) in
+            
+        }
+    }
+    
+    func createSong(name: String, duration: String) -> Song {
+        
+        let song = Song(name: name, duration: duration)
+        return song
+    }
+    
+    func getAlbums(completion: @escaping (Error?) -> Void) {
+        
+        let requestURL = baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            
+            if let error = error {
+                NSLog("Error fetching albums: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data found.")
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let albumsResults = try JSONDecoder().decode([String: Album].self, from: data)
+                self.albums = Array(albumsResults.values)
+                completion(nil)
+            } catch {
+                NSLog("Error decoding data: \(error)")
+                completion(error)
+            }
+        }.resume()
+    }
+    
+    func put(album: Album, completion: @escaping (Error?) -> Void) {
+        
+        let id = album.id
+        
+        let requestURL = baseURL.appendingPathComponent(id).appendingPathExtension("json")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(album)
+        } catch {
+            NSLog("Error encoding album: \(error)")
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error PUTing album")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data found.")
+                completion(NSError())
+                return
+            }
+            completion(nil)
+            
+        }.resume()
+    }
+    
+    var albums: [Album] = []
+    let baseURL = URL(string: "https://albums-3968e.firebaseio.com/")!
 }
