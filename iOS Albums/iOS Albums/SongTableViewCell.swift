@@ -34,7 +34,11 @@ class SongTableViewCell: UITableViewCell {
         delegate?.addSong(with: name, duration: duration)
     }
     
-    var song: Song?
+    var song: Song? {
+        didSet {
+            updateViews()
+        }
+    }
     var delegate: SongTableViewCellDelegate?
    
     @IBOutlet weak var titleLabel: UITextField!

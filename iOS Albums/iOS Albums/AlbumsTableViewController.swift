@@ -26,7 +26,7 @@ class AlbumsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Album Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath)
         
         let album = albumController.albums[indexPath.row]
 

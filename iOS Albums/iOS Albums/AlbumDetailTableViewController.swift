@@ -53,10 +53,12 @@ class AlbumDetailTableViewController: UITableViewController, SongTableViewCellDe
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Song Cell", for: indexPath) as? SongTableViewCell else { return UITableViewCell() }
-
+        
         cell.delegate = self
-        cell.song = tempSongs[indexPath.row]
-
+        if indexPath.row <= tempSongs.count - 1 {
+            cell.song = tempSongs[indexPath.row]
+        }
+        
         return cell
     }
     
