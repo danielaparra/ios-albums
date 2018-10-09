@@ -43,9 +43,9 @@ class AlbumController {
         }
     }
     
-    func createAlbum(name: String, artist: String, genres: String, coverArt: URL) {
+    func createAlbum(name: String, artist: String, genres: String, coverArt: URL, songs: [Song]) {
         
-        let album = Album(artist: artist, coverArt: coverArt, genres: genres, name: name)
+        let album = Album(artist: artist, coverArt: coverArt, genres: genres, name: name, songs: songs)
         albums.append(album)
         
         put(album: album) { (_) in
@@ -53,9 +53,9 @@ class AlbumController {
         }
     }
     
-    func update(album: Album, name: String, artist: String, genres: String, coverArt: URL) {
+    func update(album: Album, name: String, artist: String, genres: String, coverArt: URL, songs: [Song]) {
         
-        let tempAlbum = Album(artist: artist, coverArt: coverArt, genres: genres, id: album.id, name: name, songs: album.songs)
+        let tempAlbum = Album(artist: artist, coverArt: coverArt, genres: genres, id: album.id, name: name, songs: songs)
         
         guard let index = albums.index(of: album) else { return }
         

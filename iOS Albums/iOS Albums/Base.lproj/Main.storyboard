@@ -110,7 +110,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="0vV-g0-o4Q" customClass="SongTableViewCell" customModule="iOS_Albums" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Song Cell" rowHeight="128" id="0vV-g0-o4Q" customClass="SongTableViewCell" customModule="iOS_Albums" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="191" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0vV-g0-o4Q" id="BWC-py-MFf">
@@ -135,6 +135,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb1-6u-UHA">
                                                     <rect key="frame" x="0.0" y="76" width="343" height="30"/>
                                                     <state key="normal" title="Add Song"/>
+                                                    <connections>
+                                                        <action selector="addSong:" destination="0vV-g0-o4Q" eventType="touchUpInside" id="KYV-Qn-xRQ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -146,6 +149,11 @@
                                         <constraint firstItem="xBz-cs-6qx" firstAttribute="leading" secondItem="BWC-py-MFf" secondAttribute="leadingMargin" id="xd0-zo-O1z"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addSongButton" destination="Jb1-6u-UHA" id="ezi-pb-BIu"/>
+                                    <outlet property="durationLabel" destination="FwH-9X-tiT" id="ECE-NF-LgZ"/>
+                                    <outlet property="titleLabel" destination="JyD-Mx-8NT" id="tDj-PP-eyE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -154,7 +162,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="pCQ-JA-EbT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="A80-ys-hMB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="A80-ys-hMB">
+                            <connections>
+                                <action selector="saveAlbum:" destination="R1j-kC-y15" id="YV1-7S-Ibs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="artistLabel" destination="uN9-DE-gar" id="ID7-Qe-zwE"/>

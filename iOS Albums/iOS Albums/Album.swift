@@ -95,5 +95,5 @@ struct Album: Codable, Equatable {
     let genres: String
     let id: String
     let name: String
-    let songs: [Song]
+    var songs: [Song]
 }
