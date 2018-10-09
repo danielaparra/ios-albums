@@ -29,7 +29,7 @@
 		7B93DDC6216BE89A00862A1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B93DDC9216BE89A00862A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B93DDCB216BE89A00862A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B93DDD1216BE95900862A1B /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumsTableViewController.swift; path = "iOS Albums/AlbumsTableViewController.swift"; sourceTree = "<group>"; };
+		7B93DDD1216BE95900862A1B /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		7B93DDD3216BF70F00862A1B /* AlbumDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailTableViewController.swift; sourceTree = "<group>"; };
 		7B93DDD5216BFB7400862A1B /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		7B93DDD7216BFC5A00862A1B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -52,7 +52,6 @@
 		7B93DDB0216BE89300862A1B = {
 			isa = PBXGroup;
 			children = (
-				7B93DDD1216BE95900862A1B /* AlbumsTableViewController.swift */,
 				7B93DDBB216BE89300862A1B /* iOS Albums */,
 				7B93DDBA216BE89300862A1B /* Products */,
 			);
@@ -71,6 +70,7 @@
 			children = (
 				7B93DDBC216BE89300862A1B /* AppDelegate.swift */,
 				7B93DDC0216BE89300862A1B /* Main.storyboard */,
+				7B93DDD1216BE95900862A1B /* AlbumsTableViewController.swift */,
 				7B93DDD7216BFC5A00862A1B /* Album.swift */,
 				7B93DDD9216C01A500862A1B /* Song.swift */,
 				7B93DDDB216C12E200862A1B /* AlbumController.swift */,

@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="R1j-kC-y15" kind="show" id="4v5-Im-Nls"/>
+                                    <segue destination="R1j-kC-y15" kind="show" identifier="ShowAlbum" id="4v5-Im-Nls"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -156,6 +156,12 @@
                     <navigationItem key="navigationItem" title="Title" id="pCQ-JA-EbT">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="A80-ys-hMB"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="artistLabel" destination="uN9-DE-gar" id="ID7-Qe-zwE"/>
+                        <outlet property="genresLabel" destination="RVa-UX-gzJ" id="yBB-9t-mMP"/>
+                        <outlet property="nameLabel" destination="Z36-fV-3bM" id="36k-GV-oDR"/>
+                        <outlet property="urlLabel" destination="kxk-Q7-5xG" id="Smf-Yb-fi9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnd-iK-xkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

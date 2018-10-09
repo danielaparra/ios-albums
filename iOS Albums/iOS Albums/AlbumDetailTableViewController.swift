@@ -86,5 +86,12 @@ class AlbumDetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    var album: Album?
+    var albumController: AlbumController?
+    
+    @IBOutlet weak var urlLabel: UITextField!
+    @IBOutlet weak var genresLabel: UITextField!
+    @IBOutlet weak var artistLabel: UITextField!
+    @IBOutlet weak var nameLabel: UITextField!
+    
 }
