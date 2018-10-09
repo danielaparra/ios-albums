@@ -31,11 +31,14 @@ struct Album: Codable, Equatable {
         let id = try container.decode(String.self, forKey: .id)
         let name = try container.decode(String.self, forKey: .name)
         
-        var coverArtContainer = try container.nestedUnkeyedContainer(forKey: .coverArt)
+//        var coverArtContainer = try container.nestedUnkeyedContainer(forKey: .coverArt)
         
-        let coverArtSubContainer = try coverArtContainer.nestedContainer(keyedBy: CodingKeys.CoverArtCodingKeys.self)
+//        let coverArtSubContainer = try coverArtContainer.nestedContainer(keyedBy: CodingKeys.CoverArtCodingKeys.self)
         
-        let coverArtString = try coverArtSubContainer.decode(String.self, forKey: .url)
+        let coverArtContainer = try container.nestedContainer(keyedBy: CodingKeys.CoverArtCodingKeys.self, forKey: .coverArt)
+
+        
+        let coverArtString = try coverArtContainer.decode(String.self, forKey: .url)
         let coverArt = URL(string: coverArtString)!
         
         var genreContainer = try container.nestedUnkeyedContainer(forKey: .genres)

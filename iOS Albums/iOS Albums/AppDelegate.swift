@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        AlbumController().createAlbum(name: "name", artist: "artist", genres: "genre, genre1, genre2", coverArt: URL(string: "https://albums-3968e.firebaseio.com/")!)
         return true
     }
 

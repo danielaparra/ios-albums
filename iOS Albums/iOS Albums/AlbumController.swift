@@ -91,8 +91,13 @@ class AlbumController {
                 return
             }
             
+            if let json = String(data: data, encoding: .utf8) {
+                print(json)
+            }
+            
             do {
                 let albumsResults = try JSONDecoder().decode([String: Album].self, from: data)
+                
                 self.albums = Array(albumsResults.values)
                 completion(nil)
             } catch {

@@ -14,7 +14,7 @@ class AlbumsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         albumController.getAlbums { (_) in
-            
+            self.tableView.reloadData()
         }
     }
 
